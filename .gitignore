@@ -1,2 +1,4 @@
-examples/
 .env
+examples/
+__pycache__/
+.vscode/
