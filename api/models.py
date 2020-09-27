@@ -1,7 +1,15 @@
 from django.db import models
 
 
-class Animal(models.Model):
+class TimestampMixin(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class Animal(TimestampMixin):
     # Establish options for status
     PROCESSING = 'PROC'
     AVAILABLE = 'AVAIL'
@@ -21,8 +29,6 @@ class Animal(models.Model):
     status = models.CharField(max_length=10,
                               choices=STATUS_CHOICES,
                               default=PROCESSING)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.name} ({self.status}) - registered at {self.created_at}"
