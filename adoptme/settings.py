@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Project apps
+    'api.apps.ApiConfig',
     # Default installed apps
     'django.contrib.admin',
     'django.contrib.auth',
