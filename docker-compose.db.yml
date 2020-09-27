@@ -4,9 +4,9 @@ services:
   db:
     image: postgres
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=${ADOPTME_POSTGRES_DB}
+      - POSTGRES_USER=${ADOPTME_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${ADOPTME_POSTGRES_PASSWORD}
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:

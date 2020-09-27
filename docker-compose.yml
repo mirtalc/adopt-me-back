@@ -4,15 +4,22 @@ services:
   db:
     image: postgres
     environment:
-      - POSTGRES_DB=${TAS_POSTGRES_DB}
-      - POSTGRES_USER=${TAS_POSTGRES_USER}
-      - POSTGRES_PASSWORD=${TAS_POSTGRES_PASSWORD}
+      - POSTGRES_DB=${ADOPTME_POSTGRES_DB}
+      - POSTGRES_USER=${ADOPTME_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${ADOPTME_POSTGRES_PASSWORD}
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
   web:
     build: .
+    environment:
+      - ADOPTME_ENV=${ADOPTME_ENV}
+      - ADOPTME_POSTGRES_DB=${ADOPTME_POSTGRES_DB}
+      - ADOPTME_POSTGRES_USER=${ADOPTME_POSTGRES_USER}
+      - ADOPTME_POSTGRES_PASSWORD=${ADOPTME_POSTGRES_PASSWORD}
+      - ADOPTME_POSTGRES_HOST=db
+      - ADOPTME_POSTGRES_PORT=${ADOPTME_POSTGRES_PORT}
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
