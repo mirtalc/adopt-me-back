@@ -35,6 +35,10 @@ docker-compose up
 
 - Django settings > 'DATABASE > 'HOST': should be 'db' (i.e., the name of the dockerized service). That's why it's setted directly on the docker-compose file.
 
+- Django commands execution: Through docker container. For example:
+  `docker exec -it {id} bash`
+  `.../code# python manage.py runserver`
+
 ## Remove postgres data from volume
 
 docker-compose -f docker-compose.db.yml down -v
