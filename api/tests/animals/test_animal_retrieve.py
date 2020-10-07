@@ -58,3 +58,15 @@ class AnimalRetrieveTests(TestCase):
 
         self.assertEqual(expected_status, response.status_code)
         self.assertEqual(expected_response, json.loads(response.content))
+
+    def test_error_retrieve_inexistent_animal(self):
+        expected_status = status.HTTP_404_NOT_FOUND
+        expected_response = {
+            'detail': 'Not found.'
+        }
+
+        url = f"{self.animals_url}99999/"
+        response = self.client.get(url)
+
+        self.assertEqual(expected_status, response.status_code)
+        self.assertEqual(expected_response, json.loads(response.content))
