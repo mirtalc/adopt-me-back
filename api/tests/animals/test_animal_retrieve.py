@@ -62,10 +62,11 @@ class AnimalRetrieveTests(TestCase):
     def test_error_retrieve_inexistent_animal(self):
         expected_status = status.HTTP_404_NOT_FOUND
         expected_response = {
-            'detail': 'Not found.'
+            'error_code': 'resource_not_found',
+            'error_message': "Animal with id 999 was not found in our database"
         }
 
-        url = f"{self.animals_url}99999/"
+        url = f"{self.animals_url}999/"
         response = self.client.get(url)
 
         self.assertEqual(expected_status, response.status_code)
