@@ -5,6 +5,7 @@ from api import views
 
 router = routers.DefaultRouter()
 router.register(r'animals', views.AnimalViewSet)
+router.register(r'vaccines', views.VaccineViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

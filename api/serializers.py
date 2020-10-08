@@ -22,6 +22,17 @@ class AnimalSerializer(serializers.ModelSerializer):
         ]
 
 
+class VaccineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vaccine
+        fields = [
+            'id',
+            'name',
+            'description',
+            'mandatory'
+        ]
+
+
 class AnimalDetailSerializer(serializers.ModelSerializer):
     vaccinations = VaccinationBasicSerializer(many=True)
 

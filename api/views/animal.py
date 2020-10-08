@@ -1,7 +1,6 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from rest_framework.response import Response
-from django.http import HttpResponse
-from api.models import Animal, Vaccine
+from api.models import Animal
 from api.serializers import AnimalSerializer, AnimalDetailSerializer
 import api.exceptions.raisers as raiser
 
