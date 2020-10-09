@@ -13,8 +13,6 @@ class VaccineRetrieveTests(TestCase):
 
     def setUp(self):
         create_mock_vaccines()
-        print('*********************************')
-        print(Vaccine.objects.all())
 
     def test_retrieve_vaccine(self):
         expected_status = status.HTTP_200_OK
