@@ -3,9 +3,11 @@ from rest_framework.response import Response
 from api.models import Animal
 from api.serializers import AnimalSerializer, AnimalDetailSerializer
 import api.exceptions.raisers as raiser
+from rest_framework.permissions import IsAuthenticated
 
 
 class AnimalViewSet(viewsets.ViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Animal.objects.all()
 
     def list(self, request):

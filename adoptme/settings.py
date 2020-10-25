@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Custom installed apps
     'rest_framework',
     'corsheaders',
+    'rest_framework_simplejwt.token_blacklist'
 ]
 
 MIDDLEWARE = [
@@ -141,5 +142,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'api.utils.drf_overrides.custom_exception_handler'
+    'EXCEPTION_HANDLER': 'api.utils.drf_overrides.custom_exception_handler',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
