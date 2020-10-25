@@ -1,8 +1,10 @@
 from api.models import Animal, Vaccine, Vaccination
 from api.tests.example_data import create_mock_animals, create_mock_vaccines
+from api.tests.utils import mock_login, mock_authorization_header
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
+from rest_framework.authtoken.models import Token
 import json
 
 
@@ -14,6 +16,8 @@ class AnimalRetrieveTests(TestCase):
     def setUp(self):
         create_mock_animals()
         create_mock_vaccines()
+        access_token = mock_login().get('access')
+        self.header = mock_authorization_header(access_token)
 
     def test_retrieve_animal_without_vaccines(self):
         expected_status = status.HTTP_200_OK
@@ -24,10 +28,10 @@ class AnimalRetrieveTests(TestCase):
         }
 
         url = f"{self.animals_url}1/"
-        response = self.client.get(url)
+        response = self.client.get(url, **self.header)
 
-        self.assertEqual(expected_status, response.status_code)
         self.assertEqual(expected_response, json.loads(response.content))
+        self.assertEqual(expected_status, response.status_code)
 
     def test_retrieve_animal_with_vaccines(self):
         expected_status = status.HTTP_200_OK
@@ -54,7 +58,7 @@ class AnimalRetrieveTests(TestCase):
         )
 
         url = f"{self.animals_url}1/"
-        response = self.client.get(url)
+        response = self.client.get(url, **self.header)
 
         self.assertEqual(expected_status, response.status_code)
         self.assertEqual(expected_response, json.loads(response.content))
@@ -67,7 +71,7 @@ class AnimalRetrieveTests(TestCase):
         }
 
         url = f"{self.animals_url}999/"
-        response = self.client.get(url)
+        response = self.client.get(url, **self.header)
 
         self.assertEqual(expected_status, response.status_code)
         self.assertEqual(expected_response, json.loads(response.content))
