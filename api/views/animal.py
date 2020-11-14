@@ -12,7 +12,7 @@ class AnimalViewSet(viewsets.ViewSet):
     queryset = Animal.objects.all()
 
     def list(self, request):
-        serializer = AnimalSerializer(self.queryset, many=True)
+        serializer = AnimalSerializer(self.queryset.all(), many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
@@ -24,7 +24,7 @@ class AnimalViewSet(viewsets.ViewSet):
         serializer = AnimalDetailSerializer(animal)
         return Response(serializer.data)
 
-    def create(self, request):
+    def create(self, request, *args, **kwargs):
         serializer = AnimalSerializer(data=request.data, many=False)
 
         if not serializer.is_valid():

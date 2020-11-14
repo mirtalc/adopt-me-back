@@ -9,7 +9,7 @@ class VaccineViewSet(viewsets.ViewSet):
     queryset = Vaccine.objects.all()
 
     def list(self, request):
-        serializer = VaccineSerializer(self.queryset, many=True)
+        serializer = VaccineSerializer(self.queryset.all(), many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
