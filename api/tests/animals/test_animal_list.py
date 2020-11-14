@@ -1,10 +1,10 @@
-from api.models import Animal
-from api.tests.example_data import create_mock_animals
-from api.tests.utils import mock_login, mock_authorization_header
+import json
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
-import json
+
+from api.tests.example_data import create_mock_animals
+from api.tests.utils import mock_login, mock_authorization_header
 
 
 class AnimalListTests(TestCase):

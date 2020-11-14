@@ -1,11 +1,11 @@
-from api.models import Animal, Vaccine, Vaccination
-from api.tests.example_data import create_mock_animals, create_mock_vaccines
-from api.tests.utils import mock_login, mock_authorization_header
+import json
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
-from rest_framework.authtoken.models import Token
-import json
+
+from api.models import Animal, Vaccine, Vaccination
+from api.tests.example_data import create_mock_animals, create_mock_vaccines
+from api.tests.utils import mock_login, mock_authorization_header
 
 
 class AnimalRetrieveTests(TestCase):

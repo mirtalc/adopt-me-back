@@ -1,9 +1,10 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
 from api.models import Animal
 from api.serializers import AnimalSerializer, AnimalDetailSerializer
 import api.exceptions.raisers as raiser
-from rest_framework.permissions import IsAuthenticated
 
 
 class AnimalViewSet(viewsets.ViewSet):
@@ -22,3 +23,12 @@ class AnimalViewSet(viewsets.ViewSet):
 
         serializer = AnimalDetailSerializer(animal)
         return Response(serializer.data)
+
+    def create(self, request):
+        serializer = AnimalSerializer(data=request.data, many=False)
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer.save()
+
+        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
