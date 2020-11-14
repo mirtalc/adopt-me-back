@@ -5,11 +5,22 @@ Django gets environmental variables differently depending on if you're running t
 - a) Directly: it gets the values from the _.env_ file (untracked by git)
 - b) Dockerized: it gets the values from the _environment_ section of the docker-compose file (which, in turn, are either staticly setted or take them from the _.env_ file).
 
-This is important because, for example, HOST variable is different in these two situations).
+This is important because, for example, HOST variable is different in these two situations.
+
+## Restore or save api data from database
+
+- Save a copy of your data (excluding some unnecessary tables and indenting for better readability):
+  `pyman dumpdata --exclude auth.permission --exclude contenttypes --indent 2 > api/fixtures/datadumped.json`
+
+- Load data from a file (for example, the generated in the previous step) to the database:
+  `pyman loaddata api/fixtures/datadumped.json`
+
+- Delete all data from database, but not the database itself
+  `pyman flush`
 
 ## Docker volume information
 
-Volumes (also named volumes) are stored here:\
+Volumes are stored here:\
 `/var/lib/docker/volumes/`
 
 - docker volume ls

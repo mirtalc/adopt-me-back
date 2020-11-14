@@ -99,9 +99,10 @@ DATABASES = {
     }
 }
 
-print('=============== Environmental variables ============')
-print(DATABASES)
-print('====================================================')
+# //REVIEW this was useful but prints this output in datadump...
+# print('=============== Environmental variables ============')
+# print(DATABASES)
+# print('====================================================')
 
 
 # Password validation

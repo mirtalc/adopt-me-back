@@ -1,0 +1,186 @@
+[
+{
+  "model": "api.vaccine",
+  "pk": 1,
+  "fields": {
+    "name": "Bordetella Bronchiseptica",
+    "description": "This highly infectious bacterium causes severe fits of coughing, whooping, vomiting, and, in rare cases, seizures and death. It is the primary cause of kennel cough.",
+    "mandatory": true
+  }
+},
+{
+  "model": "api.vaccine",
+  "pk": 2,
+  "fields": {
+    "name": "Canine Distemper",
+    "description": "A severe and contagious disease caused by a virus that attacks the respiratory, gastrointestinal (GI), and nervous systems of dogs.",
+    "mandatory": false
+  }
+},
+{
+  "model": "api.vaccine",
+  "pk": 3,
+  "fields": {
+    "name": "Canine Hepatitis",
+    "description": "Infectious canine hepatitis is a highly contagious viral infection that affects the liver, kidneys, spleen, lungs, and the eyes of the affected dog.",
+    "mandatory": false
+  }
+},
+{
+  "model": "api.animal",
+  "pk": 1,
+  "fields": {
+    "created_at": "2020-11-14T10:46:52.710Z",
+    "updated_at": "2020-11-14T10:46:52.710Z",
+    "name": "Sudo",
+    "status": "ADOP"
+  }
+},
+{
+  "model": "api.animal",
+  "pk": 2,
+  "fields": {
+    "created_at": "2020-11-14T10:47:52.814Z",
+    "updated_at": "2020-11-14T10:47:52.815Z",
+    "name": "Laika",
+    "status": "RIP"
+  }
+},
+{
+  "model": "api.vaccination",
+  "pk": 1,
+  "fields": {
+    "animal": 1,
+    "vaccine": 1,
+    "date_vaccinated": "2020-09-27",
+    "incidences": "Vaccine caused a small reaction"
+  }
+},
+{
+  "model": "api.vaccination",
+  "pk": 2,
+  "fields": {
+    "animal": 2,
+    "vaccine": 2,
+    "date_vaccinated": "2016-10-23",
+    "incidences": "Dog was very scared but the process went well."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2020-11-14T10:46:52.713Z",
+    "user": 1,
+    "content_type": 1,
+    "object_id": "1",
+    "object_repr": "Sudo (ADOP) - registered at 2020-11-14 10:46:52.710289+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2020-11-14T10:47:52.817Z",
+    "user": 1,
+    "content_type": 1,
+    "object_id": "2",
+    "object_repr": "Laika (RIP) - registered at 2020-11-14 10:47:52.814991+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2020-11-14T10:48:23.988Z",
+    "user": 1,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Bordetella Bronchiseptica - mandatory: True",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2020-11-14T10:48:39.256Z",
+    "user": 1,
+    "content_type": 2,
+    "object_id": "2",
+    "object_repr": "Canine Distemper - mandatory: False",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2020-11-14T10:48:58.566Z",
+    "user": 1,
+    "content_type": 2,
+    "object_id": "3",
+    "object_repr": "Canine Hepatitis - mandatory: False",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2020-11-14T10:49:57.749Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Sudo (ADOP) - registered at 2020-11-14 10:46:52.710289+00:00 | Bordetella Bronchiseptica - mandatory: True | 2020-09-27",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2020-11-14T10:50:38.638Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Laika (RIP) - registered at 2020-11-14 10:47:52.814991+00:00 | Canine Distemper - mandatory: False | 2016-10-23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$fyWJLnLtRFcS$a396DPcj0oH7k3clD2rUsQ9oUXyyif5G+ab9xq0dpnI=",
+    "last_login": "2020-11-14T10:46:27.675Z",
+    "is_superuser": true,
+    "username": "mirta",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-11-14T10:45:14.668Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "drtjfs2jmsg9mxeaaloqhdnm19irfhtg",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGAhWX7nsGMgODVA0kpV0Z765NutDtf-_9lwi4rSVsnZcwJ3ERIE6_G2F8cN1BumO9NRlbXZeZ5K7Ig3Y5tcTP6-H-HRTs5VuPypusMxJaRypzYqZIpIwbAbU_w8B2oOSYHaAjTeCtNjlH0Ow0kHh_AAr8OKo:1kdt4d:5meXy6xRWgSQHLDJC9UyR3dLTZq2Abd-OwOBi5IwO1c",
+    "expire_date": "2020-11-28T10:46:27.678Z"
+  }
+}
+]
