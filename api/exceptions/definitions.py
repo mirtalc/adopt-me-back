@@ -9,3 +9,23 @@ class ResourceNotFound(APIException):
                  ):
         self.status_code = status
         self.detail = ErrorDetail(code=code, string=message)
+
+
+class NoValuesSupplied(APIException):
+    def __init__(self,
+                 status=400,
+                 code='no_values_supplied',
+                 message="You did not supplied any values to update"
+                 ):
+        self.status_code = status
+        self.detail = ErrorDetail(code=code, string=message)
+
+
+class InvalidFields(APIException):
+    def __init__(self,
+                 status=400,
+                 code='invalid_fields',
+                 message='Invalid value supplied'
+                 ):
+        self.status_code = status
+        self.detail = ErrorDetail(code=code, string=message)
