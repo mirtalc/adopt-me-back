@@ -30,20 +30,118 @@
   "model": "api.animal",
   "pk": 1,
   "fields": {
-    "created_at": "2020-11-14T10:46:52.710Z",
-    "updated_at": "2020-11-14T10:46:52.710Z",
+    "created_at": "2020-11-30T12:25:11.821Z",
+    "updated_at": "2020-11-30T12:25:11.821Z",
     "name": "Sudo",
-    "status": "ADOP"
+    "species": 2,
+    "status": 3
   }
 },
 {
   "model": "api.animal",
   "pk": 2,
   "fields": {
-    "created_at": "2020-11-14T10:47:52.814Z",
-    "updated_at": "2020-11-14T10:47:52.815Z",
+    "created_at": "2020-11-30T12:25:20.623Z",
+    "updated_at": "2020-11-30T12:25:20.624Z",
     "name": "Laika",
-    "status": "RIP"
+    "species": 2,
+    "status": 5
+  }
+},
+{
+  "model": "api.animal",
+  "pk": 3,
+  "fields": {
+    "created_at": "2020-11-30T12:25:38.237Z",
+    "updated_at": "2020-11-30T12:25:38.237Z",
+    "name": "Mishi",
+    "species": 1,
+    "status": 4
+  }
+},
+{
+  "model": "api.animal",
+  "pk": 4,
+  "fields": {
+    "created_at": "2020-11-30T12:26:06.068Z",
+    "updated_at": "2020-11-30T12:26:06.068Z",
+    "name": "Yuri",
+    "species": 1,
+    "status": 1
+  }
+},
+{
+  "model": "api.animal",
+  "pk": 5,
+  "fields": {
+    "created_at": "2020-11-30T12:26:26.497Z",
+    "updated_at": "2020-11-30T12:26:26.497Z",
+    "name": "Llum",
+    "species": 2,
+    "status": 2
+  }
+},
+{
+  "model": "api.species",
+  "pk": 1,
+  "fields": {
+    "uid": "CAT",
+    "name": "Cat",
+    "fullname": "Felis catus"
+  }
+},
+{
+  "model": "api.species",
+  "pk": 2,
+  "fields": {
+    "uid": "DOG",
+    "name": "Dog",
+    "fullname": "Canis lupus familiaris"
+  }
+},
+{
+  "model": "api.adoptionstatus",
+  "pk": 1,
+  "fields": {
+    "uid": "PROC",
+    "name": "Processing",
+    "description": "Processing or recovering; cannot yet be adopted"
+  }
+},
+{
+  "model": "api.adoptionstatus",
+  "pk": 2,
+  "fields": {
+    "uid": "AVAIL",
+    "name": "Available",
+    "description": "Available for adopting"
+  }
+},
+{
+  "model": "api.adoptionstatus",
+  "pk": 3,
+  "fields": {
+    "uid": "ADOP",
+    "name": "Adopted",
+    "description": "Already adopted. Yay!"
+  }
+},
+{
+  "model": "api.adoptionstatus",
+  "pk": 4,
+  "fields": {
+    "uid": "TRANS",
+    "name": "Transferred",
+    "description": "Transferred to another shelter"
+  }
+},
+{
+  "model": "api.adoptionstatus",
+  "pk": 5,
+  "fields": {
+    "uid": "RIP",
+    "name": "Deceased",
+    "description": "Unfortunately, it died"
   }
 },
 {
@@ -52,29 +150,59 @@
   "fields": {
     "animal": 1,
     "vaccine": 1,
-    "date_vaccinated": "2020-09-27",
-    "incidences": "Vaccine caused a small reaction"
+    "date_vaccinated": "2016-10-23",
+    "incidences": "Dog was very scared but the process went well."
   }
 },
 {
   "model": "api.vaccination",
   "pk": 2,
   "fields": {
+    "animal": 1,
+    "vaccine": 2,
+    "date_vaccinated": "2020-10-09",
+    "incidences": "Vaccine caused a small reaction"
+  }
+},
+{
+  "model": "api.vaccination",
+  "pk": 3,
+  "fields": {
+    "animal": 1,
+    "vaccine": 3,
+    "date_vaccinated": "2020-11-30",
+    "incidences": ""
+  }
+},
+{
+  "model": "api.vaccination",
+  "pk": 4,
+  "fields": {
+    "animal": 3,
+    "vaccine": 1,
+    "date_vaccinated": "2019-11-30",
+    "incidences": ""
+  }
+},
+{
+  "model": "api.vaccination",
+  "pk": 5,
+  "fields": {
     "animal": 2,
     "vaccine": 2,
     "date_vaccinated": "2016-10-23",
-    "incidences": "Dog was very scared but the process went well."
+    "incidences": ""
   }
 },
 {
   "model": "admin.logentry",
   "pk": 1,
   "fields": {
-    "action_time": "2020-11-14T10:46:52.713Z",
+    "action_time": "2020-11-30T12:15:00.327Z",
     "user": 1,
-    "content_type": 1,
+    "content_type": 4,
     "object_id": "1",
-    "object_repr": "Sudo (ADOP) - registered at 2020-11-14 10:46:52.710289+00:00",
+    "object_repr": "PROC (Processing)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -83,11 +211,11 @@
   "model": "admin.logentry",
   "pk": 2,
   "fields": {
-    "action_time": "2020-11-14T10:47:52.817Z",
+    "action_time": "2020-11-30T12:15:21.065Z",
     "user": 1,
-    "content_type": 1,
+    "content_type": 4,
     "object_id": "2",
-    "object_repr": "Laika (RIP) - registered at 2020-11-14 10:47:52.814991+00:00",
+    "object_repr": "AVAIL (Available)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -96,7 +224,72 @@
   "model": "admin.logentry",
   "pk": 3,
   "fields": {
-    "action_time": "2020-11-14T10:48:23.988Z",
+    "action_time": "2020-11-30T12:15:34.684Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "ADOP (Adopted)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2020-11-30T12:15:49.666Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "TRANS (Transferred)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2020-11-30T12:16:21.214Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "RIP (Deceased)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2020-11-30T12:22:27.383Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "1",
+    "object_repr": "CAT (Cat) Felis catus",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2020-11-30T12:23:30.551Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "2",
+    "object_repr": "DOG (Dog) Canis lupus familiaris",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2020-11-30T12:24:08.348Z",
     "user": 1,
     "content_type": 2,
     "object_id": "1",
@@ -107,9 +300,9 @@
 },
 {
   "model": "admin.logentry",
-  "pk": 4,
+  "pk": 9,
   "fields": {
-    "action_time": "2020-11-14T10:48:39.256Z",
+    "action_time": "2020-11-30T12:24:27.083Z",
     "user": 1,
     "content_type": 2,
     "object_id": "2",
@@ -120,9 +313,9 @@
 },
 {
   "model": "admin.logentry",
-  "pk": 5,
+  "pk": 10,
   "fields": {
-    "action_time": "2020-11-14T10:48:58.566Z",
+    "action_time": "2020-11-30T12:24:40.515Z",
     "user": 1,
     "content_type": 2,
     "object_id": "3",
@@ -133,26 +326,130 @@
 },
 {
   "model": "admin.logentry",
-  "pk": 6,
+  "pk": 11,
   "fields": {
-    "action_time": "2020-11-14T10:49:57.749Z",
+    "action_time": "2020-11-30T12:25:11.824Z",
     "user": 1,
-    "content_type": 3,
+    "content_type": 1,
     "object_id": "1",
-    "object_repr": "Sudo (ADOP) - registered at 2020-11-14 10:46:52.710289+00:00 | Bordetella Bronchiseptica - mandatory: True | 2020-09-27",
+    "object_repr": "Sudo - registered at 2020-11-30 12:25:11.821738+00:00",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
 },
 {
   "model": "admin.logentry",
-  "pk": 7,
+  "pk": 12,
   "fields": {
-    "action_time": "2020-11-14T10:50:38.638Z",
+    "action_time": "2020-11-30T12:25:20.627Z",
+    "user": 1,
+    "content_type": 1,
+    "object_id": "2",
+    "object_repr": "Laika - registered at 2020-11-30 12:25:20.623959+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2020-11-30T12:25:38.239Z",
+    "user": 1,
+    "content_type": 1,
+    "object_id": "3",
+    "object_repr": "Mishi - registered at 2020-11-30 12:25:38.237923+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2020-11-30T12:26:06.070Z",
+    "user": 1,
+    "content_type": 1,
+    "object_id": "4",
+    "object_repr": "Yuri - registered at 2020-11-30 12:26:06.068403+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2020-11-30T12:26:26.498Z",
+    "user": 1,
+    "content_type": 1,
+    "object_id": "5",
+    "object_repr": "Llum - registered at 2020-11-30 12:26:26.497103+00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2020-11-30T12:27:13.345Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Sudo - registered at 2020-11-30 12:25:11.821738+00:00 | Bordetella Bronchiseptica - mandatory: True | 2016-10-23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2020-11-30T12:27:45.856Z",
     "user": 1,
     "content_type": 3,
     "object_id": "2",
-    "object_repr": "Laika (RIP) - registered at 2020-11-14 10:47:52.814991+00:00 | Canine Distemper - mandatory: False | 2016-10-23",
+    "object_repr": "Sudo - registered at 2020-11-30 12:25:11.821738+00:00 | Canine Distemper - mandatory: False | 2020-10-09",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2020-11-30T12:27:53.680Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "3",
+    "object_repr": "Sudo - registered at 2020-11-30 12:25:11.821738+00:00 | Canine Hepatitis - mandatory: False | 2020-11-30",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2020-11-30T12:28:13.079Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "4",
+    "object_repr": "Mishi - registered at 2020-11-30 12:25:38.237923+00:00 | Bordetella Bronchiseptica - mandatory: True | 2019-11-30",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2020-11-30T12:28:27.739Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "5",
+    "object_repr": "Laika - registered at 2020-11-30 12:25:20.623959+00:00 | Canine Distemper - mandatory: False | 2016-10-23",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -161,8 +458,8 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$216000$fyWJLnLtRFcS$a396DPcj0oH7k3clD2rUsQ9oUXyyif5G+ab9xq0dpnI=",
-    "last_login": "2020-11-14T10:46:27.675Z",
+    "password": "pbkdf2_sha256$216000$S8pFGIqANdQZ$dCr75v8TQfTUbw2AO1pIHsTBLsGl9eNb9lR251n9/rs=",
+    "last_login": "2020-11-30T12:13:57.664Z",
     "is_superuser": true,
     "username": "mirta",
     "first_name": "",
@@ -170,17 +467,17 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2020-11-14T10:45:14.668Z",
+    "date_joined": "2020-11-30T12:13:47.024Z",
     "groups": [],
     "user_permissions": []
   }
 },
 {
   "model": "sessions.session",
-  "pk": "drtjfs2jmsg9mxeaaloqhdnm19irfhtg",
+  "pk": "cg8itze1qm9z5uhgp04ezi3mxmhcja4m",
   "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hCGAhWX7nsGMgODVA0kpV0Z765NutDtf-_9lwi4rSVsnZcwJ3ERIE6_G2F8cN1BumO9NRlbXZeZ5K7Ig3Y5tcTP6-H-HRTs5VuPypusMxJaRypzYqZIpIwbAbU_w8B2oOSYHaAjTeCtNjlH0Ow0kHh_AAr8OKo:1kdt4d:5meXy6xRWgSQHLDJC9UyR3dLTZq2Abd-OwOBi5IwO1c",
-    "expire_date": "2020-11-28T10:46:27.678Z"
+    "session_data": ".eJxVjMsOwiAQRf-FtSFAebp07zeQgRmkaiAp7cr479qkC93ec859sQjbWuM2aIkzsjOT7PS7JcgPajvAO7Rb57m3dZkT3xV-0MGvHel5Ody_gwqjfmsjVEBL6K12UgYprA4iIxnnrXIJISXhPU4wpeAKiqDNRNYXA5LAFMXeH8L8N4E:1kji45:WSuxsk5LXcQtwWEgQP_Y76Oou1VhZqIaCBJEdljqpXo",
+    "expire_date": "2020-12-14T12:13:57.667Z"
   }
 }
 ]

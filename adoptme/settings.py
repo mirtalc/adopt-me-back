@@ -144,6 +144,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Other
+FIXTURE_DIRS = [
+    '/api/fixtures/'
+]
+
+# Libraries
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'api.utils.drf_overrides.custom_exception_handler',
     'DEFAULT_AUTHENTICATION_CLASSES': (

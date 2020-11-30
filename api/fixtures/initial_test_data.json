@@ -1,0 +1,145 @@
+[
+    {
+      "model": "api.vaccine",
+      "pk": 1,
+      "fields": {
+        "name": "Bordetella Bronchiseptica",
+        "description": "This highly infectious bacterium causes severe fits of coughing, whooping, vomiting, and, in rare cases, seizures and death. It is the primary cause of kennel cough.",
+        "mandatory": true
+      }
+    },
+    {
+      "model": "api.vaccine",
+      "pk": 2,
+      "fields": {
+        "name": "Canine Distemper",
+        "description": "A severe and contagious disease caused by a virus that attacks the respiratory, gastrointestinal (GI), and nervous systems of dogs.",
+        "mandatory": false
+      }
+    },
+    {
+      "model": "api.vaccine",
+      "pk": 3,
+      "fields": {
+        "name": "Canine Hepatitis",
+        "description": "Infectious canine hepatitis is a highly contagious viral infection that affects the liver, kidneys, spleen, lungs, and the eyes of the affected dog.",
+        "mandatory": false
+      }
+    },
+    {
+      "model": "api.animal",
+      "pk": 1,
+      "fields": {
+        "created_at": "2020-11-30T12:25:11.821Z",
+        "updated_at": "2020-11-30T12:25:11.821Z",
+        "name": "Sudo",
+        "species": 2,
+        "status": 3
+      }
+    },
+    {
+      "model": "api.animal",
+      "pk": 2,
+      "fields": {
+        "created_at": "2020-11-30T12:25:20.623Z",
+        "updated_at": "2020-11-30T12:25:20.624Z",
+        "name": "Laika",
+        "species": 2,
+        "status": 5
+      }
+    },
+    {
+      "model": "api.animal",
+      "pk": 3,
+      "fields": {
+        "created_at": "2020-11-30T12:25:38.237Z",
+        "updated_at": "2020-11-30T12:25:38.237Z",
+        "name": "Mishi",
+        "species": 1,
+        "status": 4
+      }
+    },
+    {
+      "model": "api.species",
+      "pk": 1,
+      "fields": {
+        "uid": "CAT",
+        "name": "Cat",
+        "fullname": "Felis catus"
+      }
+    },
+    {
+      "model": "api.species",
+      "pk": 2,
+      "fields": {
+        "uid": "DOG",
+        "name": "Dog",
+        "fullname": "Canis lupus familiaris"
+      }
+    },
+    {
+      "model": "api.adoptionstatus",
+      "pk": 1,
+      "fields": {
+        "uid": "PROC",
+        "name": "Processing",
+        "description": "Processing or recovering; cannot yet be adopted"
+      }
+    },
+    {
+      "model": "api.adoptionstatus",
+      "pk": 2,
+      "fields": {
+        "uid": "AVAIL",
+        "name": "Available",
+        "description": "Available for adopting"
+      }
+    },
+    {
+      "model": "api.adoptionstatus",
+      "pk": 3,
+      "fields": {
+        "uid": "ADOP",
+        "name": "Adopted",
+        "description": "Already adopted. Yay!"
+      }
+    },
+    {
+      "model": "api.adoptionstatus",
+      "pk": 4,
+      "fields": {
+        "uid": "TRANS",
+        "name": "Transferred",
+        "description": "Transferred to another shelter"
+      }
+    },
+    {
+      "model": "api.adoptionstatus",
+      "pk": 5,
+      "fields": {
+        "uid": "RIP",
+        "name": "Deceased",
+        "description": "Unfortunately, it died"
+      }
+    },
+    {
+      "model": "api.vaccination",
+      "pk": 1,
+      "fields": {
+        "animal": 1,
+        "vaccine": 1,
+        "date_vaccinated": "2016-10-23",
+        "incidences": "Dog was very scared but the process went well."
+      }
+    },
+    {
+      "model": "api.vaccination",
+      "pk": 2,
+      "fields": {
+        "animal": 1,
+        "vaccine": 2,
+        "date_vaccinated": "2020-10-09",
+        "incidences": "Vaccine caused a small reaction"
+      }
+    }
+]

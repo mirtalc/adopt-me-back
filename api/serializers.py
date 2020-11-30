@@ -1,6 +1,15 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from api.models import Animal, Vaccine, Vaccination
+from api.models import Animal, Vaccine, Vaccination, AdoptionStatus, Species
+
+
+class StatusUidSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdoptionStatus
+        fields = [
+            'name',
+            'uid'
+        ]
 
 
 class VaccinationBasicSerializer(serializers.ModelSerializer):
@@ -14,6 +23,8 @@ class VaccinationBasicSerializer(serializers.ModelSerializer):
 
 
 class AnimalSerializer(serializers.ModelSerializer):
+    status = StatusUidSerializer()
+
     class Meta:
         model = Animal
         fields = [
