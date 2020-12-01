@@ -151,7 +151,7 @@ FIXTURE_DIRS = [
 
 # Libraries
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'api.utils.drf_overrides.custom_exception_handler',
+    'EXCEPTION_HANDLER': 'adoptme.handlers.exception_handler.handler',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
