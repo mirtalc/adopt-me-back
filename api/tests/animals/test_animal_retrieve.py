@@ -4,7 +4,6 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from api.models import Animal, Vaccine, Vaccination
-from api.tests.example_data import create_mock_animals, create_mock_vaccines
 from api.tests.utils import mock_login, mock_authorization_header
 
 
@@ -12,22 +11,22 @@ class AnimalRetrieveTests(TestCase):
     client = APIClient()
     maxDiff = None
     animals_url = '/api/animals/'
+    fixtures = ['initial_test_data.json']
 
     def setUp(self):
-        create_mock_animals()
-        create_mock_vaccines()
         access_token = mock_login().get('access')
         self.header = mock_authorization_header(access_token)
 
     def test_retrieve_animal_without_vaccines(self):
         expected_status = status.HTTP_200_OK
         expected_response = {
-            'name': 'Sudo',
-            'status': 'ADOP',
+            'name': 'Laika',
+            'species': {'name': 'Dog', 'uid': 'DOG'},
+            'status': {'name': 'Deceased', 'uid': 'RIP'},
             'vaccinations': []
         }
 
-        url = f"{self.animals_url}1/"
+        url = f"{self.animals_url}2/"
         response = self.client.get(url, **self.header)
 
         self.assertEqual(expected_response, json.loads(response.content))
@@ -37,25 +36,27 @@ class AnimalRetrieveTests(TestCase):
         expected_status = status.HTTP_200_OK
         expected_response = {
             'name': 'Sudo',
-            'status': 'ADOP',
+            'species': {'name': 'Dog', 'uid': 'DOG'},
+            'status': {'name': 'Adopted', 'uid': 'ADOP'},
             'vaccinations': [
                 {
-                    'date_vaccinated': '2016-09-27',
-                    'incidences': 'Dog was initially scared',
-                    'vaccine': 2
+                    'date_vaccinated': '2016-10-23',
+                    'incidences': 'Dog was very scared but the process went well.',
+                    'vaccine': {
+                        'mandatory': True,
+                        'name': 'Bordetella Bronchiseptica'
+                    }
+                },
+                {
+                    'date_vaccinated': '2020-10-09',
+                    'incidences': 'Vaccine caused a small reaction',
+                    'vaccine': {
+                        'mandatory': False,
+                        'name': 'Canine Distemper'
+                    }
                 }
             ]
         }
-
-        # Simulate that animal has been vaccinated
-        my_animal = Animal.objects.get(pk=1)
-        some_vaccine = Vaccine.objects.get(pk=2)
-        Vaccination.objects.create(
-            animal=my_animal,
-            vaccine=some_vaccine,
-            date_vaccinated='2016-09-27',
-            incidences='Dog was initially scared'
-        )
 
         url = f"{self.animals_url}1/"
         response = self.client.get(url, **self.header)

@@ -4,8 +4,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
 
 from api.models import Animal
-from api.serializers import AnimalSerializer, AnimalDetailSerializer
-from api.utils.helpers import has_body_params
+from api.serializers import AnimalSerializer, AnimalDetailSerializer, AnimalCreateSerializer
+from api.utils.helpers import has_body_params, summarize_serializer_errors
 import api.exceptions.raisers as raiser
 
 
@@ -27,7 +27,7 @@ class AnimalViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     def create(self, request, *args, **kwargs):
-        serializer = AnimalSerializer(data=request.data, many=False)
+        serializer = AnimalCreateSerializer(data=request.data, many=False)
 
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -51,14 +51,14 @@ class AnimalViewSet(viewsets.ViewSet):
             if(not has_body_params(request)):
                 raiser.no_values_supplied()
 
-            serializer = AnimalSerializer(instance=animal,
-                                          data=request.data,
-                                          partial=True)
+            serializer = AnimalCreateSerializer(instance=animal,
+                                                data=request.data,
+                                                partial=True)
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data)
-
         except Animal.DoesNotExist:
             raiser.animal_not_found(animal_id=pk)
         except ValidationError:
-            raiser.invalid_fields(serializer.errors)
+            message = summarize_serializer_errors(serializer.errors)
+            raiser.invalid_fields(message)

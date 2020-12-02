@@ -1,5 +1,5 @@
-from api.models import TimestampMixin
 from django.db import models
+from api.models import TimestampMixin
 
 
 class Vaccine(models.Model):
@@ -12,25 +12,35 @@ class Vaccine(models.Model):
 
 
 class Animal(TimestampMixin):
-    # Establish options for status
-    PROCESSING = 'PROC'
-    AVAILABLE = 'AVAIL'
-    ADOPTED = 'ADOP'
-    TRANSFERRED = 'TRANS'
-    DECEASED = 'RIP'
-
-    STATUS_CHOICES = (
-        (PROCESSING, 'Processing or recovering; cannot yet be adopted'),
-        (AVAILABLE, 'Available for adopting'),
-        (ADOPTED, 'Already adopted. Yay!'),
-        (TRANSFERRED, 'Transferred to another shelter'),
-        (DECEASED, 'Unfortunately, it is deceased')
-    )
-
     name = models.CharField(max_length=50, default='Mistery')
-    status = models.CharField(max_length=10,
-                              choices=STATUS_CHOICES,
-                              default=PROCESSING)
+    species = models.ForeignKey(
+        'Species', on_delete=models.CASCADE, null=True)
+    status = models.ForeignKey(
+        'AdoptionStatus', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return f"{self.name} ({self.status}) - registered at {self.created_at}"
+        return f"{self.name} | {self.species.name } | {self.status.name }"
+
+
+class Species(models.Model):
+    uid = models.CharField(max_length=10, unique=True)
+    name = models.CharField(max_length=30)
+    fullname = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = "Species"
+
+    def __str__(self):
+        return f"{self.uid} ({self.name}) {self.fullname}"
+
+
+class AdoptionStatus(models.Model):
+    uid = models.CharField(max_length=10, unique=True)
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name_plural = "Adoption statuses"
+
+    def __str__(self):
+        return f"{self.uid} ({self.name})"

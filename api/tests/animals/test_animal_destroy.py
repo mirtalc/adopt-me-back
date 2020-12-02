@@ -3,7 +3,6 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from api.tests.example_data import create_mock_animals, create_mock_vaccines
 from api.tests.utils import mock_login, mock_authorization_header
 
 
@@ -11,10 +10,9 @@ class AnimalDestroyTests(TestCase):
     client = APIClient()
     maxDiff = None
     animals_url = '/api/animals/'
+    fixtures = ['initial_test_data.json']
 
     def setUp(self):
-        create_mock_animals()
-        create_mock_vaccines()
         access_token = mock_login().get('access')
         self.header = mock_authorization_header(access_token)
 

@@ -7,10 +7,10 @@ from api.tests.utils import mock_login, mock_authorization_header
 
 
 class AnimalListTests(TestCase):
-    fixtures = ['initial_test_data.json']
     client = APIClient()
     maxDiff = None
     animals_url = '/api/animals/'
+    fixtures = ['initial_test_data.json']
 
     def setUp(self):
         access_token = mock_login().get('access')
@@ -22,16 +22,19 @@ class AnimalListTests(TestCase):
             {
                 'id': 1,
                 'name': 'Sudo',
+                'species': {'name': 'Dog', 'uid': 'DOG'},
                 'status': {'name': 'Adopted', 'uid': 'ADOP'}
             },
             {
                 'id': 2,
                 'name': 'Laika',
+                'species': {'name': 'Dog', 'uid': 'DOG'},
                 'status': {'name': 'Deceased', 'uid': 'RIP'}
             },
             {
                 'id': 3,
                 'name': 'Mishi',
+                'species': {'name': 'Cat', 'uid': 'CAT'},
                 'status': {'name': 'Transferred', 'uid': 'TRANS'}
             }
         ]

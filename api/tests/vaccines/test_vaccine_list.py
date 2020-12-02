@@ -1,18 +1,21 @@
-from api.models import Vaccine
-from api.tests.example_data import create_mock_vaccines
+import json
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
-import json
+
+from api.models import Vaccine
+from api.tests.utils import mock_login, mock_authorization_header
 
 
 class VaccineListTests(TestCase):
     client = APIClient()
     maxDiff = None
     vaccines_url = '/api/vaccines/'
+    fixtures = ['initial_test_data.json']
 
     def setUp(self):
-        create_mock_vaccines()
+        access_token = mock_login().get('access')
+        self.header = mock_authorization_header(access_token)
 
     def test_list_vaccines(self):
         expected_status = status.HTTP_200_OK
