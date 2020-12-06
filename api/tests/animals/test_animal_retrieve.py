@@ -3,7 +3,6 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from api.models import Animal, Vaccine, Vaccination
 from api.tests.utils import mock_login, mock_authorization_header
 
 
@@ -21,6 +20,7 @@ class AnimalRetrieveTests(TestCase):
         expected_status = status.HTTP_200_OK
         expected_response = {
             'name': 'Laika',
+            'photo': '/media/laika.jpg',
             'species': {'name': 'Dog', 'uid': 'DOG'},
             'status': {'name': 'Deceased', 'uid': 'RIP'},
             'vaccinations': []
@@ -36,6 +36,7 @@ class AnimalRetrieveTests(TestCase):
         expected_status = status.HTTP_200_OK
         expected_response = {
             'name': 'Sudo',
+            'photo': '/media/sudopic.jpg',
             'species': {'name': 'Dog', 'uid': 'DOG'},
             'status': {'name': 'Adopted', 'uid': 'ADOP'},
             'vaccinations': [

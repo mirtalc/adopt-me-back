@@ -22,18 +22,21 @@ class AnimalListTests(TestCase):
             {
                 'id': 1,
                 'name': 'Sudo',
+                'photo': '/media/sudopic.jpg',
                 'species': {'name': 'Dog', 'uid': 'DOG'},
                 'status': {'name': 'Adopted', 'uid': 'ADOP'}
             },
             {
                 'id': 2,
                 'name': 'Laika',
+                'photo': '/media/laika.jpg',
                 'species': {'name': 'Dog', 'uid': 'DOG'},
                 'status': {'name': 'Deceased', 'uid': 'RIP'}
             },
             {
                 'id': 3,
                 'name': 'Mishi',
+                'photo': None,
                 'species': {'name': 'Cat', 'uid': 'CAT'},
                 'status': {'name': 'Transferred', 'uid': 'TRANS'}
             }

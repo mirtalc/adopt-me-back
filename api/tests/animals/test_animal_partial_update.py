@@ -21,12 +21,14 @@ class AnimalPartialUpdateTests(TestCase):
         expected_response = {
             'id': 1,
             'name': "A different name",
+            'photo': '/media/sudopic.jpg',
             'species': 2,
             'status': 3
         }
         expected_response_2 = {
             'id': 1,
             'name': "A different name",
+            'photo': '/media/sudopic.jpg',
             'species': 2,
             'status': 4
         }
@@ -92,7 +94,7 @@ class AnimalPartialUpdateTests(TestCase):
         self.assertEqual(expected_response, json.loads(response.content))
         self.assertEqual(expected_status, response.status_code)
 
-    def test_delete_animal_fails_no_token(self):
+    def test_patch_animal_fails_no_token(self):
         expected_status = status.HTTP_401_UNAUTHORIZED
         expected_response = {
             'error_code': 'not_authenticated',

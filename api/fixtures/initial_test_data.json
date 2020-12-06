@@ -34,7 +34,8 @@
         "updated_at": "2020-11-30T12:25:11.821Z",
         "name": "Sudo",
         "species": 2,
-        "status": 3
+        "status": 3,
+        "photo": "sudopic.jpg"
       }
     },
     {
@@ -45,7 +46,8 @@
         "updated_at": "2020-11-30T12:25:20.624Z",
         "name": "Laika",
         "species": 2,
-        "status": 5
+        "status": 5,
+        "photo": "laika.jpg"
       }
     },
     {

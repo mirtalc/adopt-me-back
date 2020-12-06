@@ -21,6 +21,7 @@ class AnimalCreateTests(TestCase):
         expected_response = {
             'id': 6,
             'name': 'Kittie',
+            'photo': None,
             'species': 1,
             'status': 2
         }
