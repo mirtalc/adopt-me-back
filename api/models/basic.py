@@ -17,6 +17,7 @@ class Animal(TimestampMixin):
         'Species', on_delete=models.CASCADE, null=True)
     status = models.ForeignKey(
         'AdoptionStatus', on_delete=models.CASCADE, null=True)
+    photo = models.ImageField(upload_to='pets', null=True)
 
     def __str__(self):
         return f"{self.name} | {self.species.name } | {self.status.name }"

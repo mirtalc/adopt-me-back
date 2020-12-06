@@ -1,3 +1,4 @@
+from rest_framework.exceptions import ParseError
 from api.exceptions.definitions import ResourceNotFound, NoValuesSupplied, InvalidFields
 
 
@@ -18,3 +19,8 @@ def no_values_supplied():
 def invalid_fields(field_errors):
     message = f"Invalid field values found: {field_errors}"
     raise InvalidFields(message=message)
+
+
+def attached_file_missing():
+    message = "Attachment file missing required for this action"
+    raise ParseError(message)

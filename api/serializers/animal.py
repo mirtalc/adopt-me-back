@@ -14,20 +14,22 @@ class AnimalSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'name',
+            'photo',
             'status',
             'species'
         ]
 
 
-class AnimalCreateSerializer(serializers.ModelSerializer):
+class AnimalPostPatchSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Animal
         fields = [
             'id',
             'name',
+            'photo',
             'status',
-            'species'
+            'species',
         ]
 
 
@@ -40,6 +42,7 @@ class AnimalDetailSerializer(serializers.ModelSerializer):
         model = Animal
         fields = [
             'name',
+            'photo',
             'species',
             'status',
             'vaccinations'
