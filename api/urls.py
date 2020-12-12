@@ -8,6 +8,8 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'animals', views.AnimalViewSet)
 router.register(r'vaccines', views.VaccineViewSet)
+router.register(r'adoption-statuses', views.AdoptionStatusViewSet)
+router.register(r'species', views.SpeciesViewSet)
 router.register(r'register', views.RegisterViewSet)
 
 urlpatterns = [
